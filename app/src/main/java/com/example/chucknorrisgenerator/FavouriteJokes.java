@@ -43,6 +43,7 @@ public class FavouriteJokes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //Set instructions text
         String instruction1 = "- View your favourite jokes";
         String instruction2 = "- Swipe left/right to remove a joke";
 
@@ -68,6 +69,7 @@ public class FavouriteJokes extends Fragment {
         //Set a default layout manager to the joke list view
         jokeList.setLayoutManager(new LinearLayoutManager(rootview.getContext()));
 
+        //Create a simple call back for enabling swipe to delete feature
         ItemTouchHelper.SimpleCallback removeJokeFromList = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
             @Override
@@ -84,7 +86,7 @@ public class FavouriteJokes extends Fragment {
             }
         };
 
-
+        //Initialize the ItemTouchHelper and attach recycler view
         ItemTouchHelper touchHelper = new ItemTouchHelper(removeJokeFromList);
         touchHelper.attachToRecyclerView(jokeList);
 

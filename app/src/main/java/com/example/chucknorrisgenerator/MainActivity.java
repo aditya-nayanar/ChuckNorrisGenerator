@@ -19,15 +19,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initialize text for instructions
         display1 = findViewById(R.id.instruction1);
         display2 = findViewById(R.id.instruction2);
 
+        //Load fragment to begin with
         GenerateJoke fragment = new GenerateJoke();
         FragmentManager myManager = getSupportFragmentManager();
         FragmentTransaction myTransaction = myManager.beginTransaction();
         myTransaction.replace(R.id.mainScreen, fragment);
         myTransaction.commit();
 
+        //Set fragments to load for each button
         Button bRandom = findViewById(R.id.bRandom);
         bRandom.setOnClickListener(v -> {
             GenerateJoke fragment1 = new GenerateJoke();

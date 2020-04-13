@@ -98,6 +98,7 @@ public class Joke {
 
     public static List<Joke> userFavouriteJokes = new ArrayList<>();
 
+    //Methods to manipulate the favourite jokes list
     public static void addToFavouriteJokes(Joke joke){
         userFavouriteJokes.add(joke);
     }
