@@ -1,6 +1,7 @@
 
-package com.example;
+package com.example.chucknorrisgenerator.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -28,6 +29,16 @@ public class Joke {
     @SerializedName("value")
     @Expose
     private String value;
+
+    public Joke(List<String> categories, String createdAt, String iconUrl, String id, String updatedAt, String url, String value) {
+        this.categories = categories;
+        this.createdAt = createdAt;
+        this.iconUrl = iconUrl;
+        this.id = id;
+        this.updatedAt = updatedAt;
+        this.url = url;
+        this.value = value;
+    }
 
     public List<String> getCategories() {
         return categories;
@@ -83,6 +94,20 @@ public class Joke {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public static List<Joke> userFavouriteJokes = new ArrayList<>();
+
+    public static void addToFavouriteJokes(Joke joke){
+        userFavouriteJokes.add(joke);
+    }
+
+    public static void removeFromFavouriteJokes(int i){
+        userFavouriteJokes.remove(i);
+    }
+
+    public static List<Joke> getFavouriteJokes(){
+        return userFavouriteJokes;
     }
 
 }
